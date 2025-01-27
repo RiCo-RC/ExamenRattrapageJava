@@ -35,9 +35,6 @@ public class Calculator {
 
     public Calculator clickOnButton(String buttonValue, Boolean displayInput) {
         for (char character : buttonValue.toCharArray()) {
-            if (!Character.isDigit(character)) {
-                this.operatorType = String.valueOf(character);
-            }
             if (expression.isEmpty()) expression = String.valueOf(character);
             else expression += String.valueOf(character);
         }
@@ -82,10 +79,9 @@ public class Calculator {
                 this.result = this.expressionNumber.get(i) / this.expressionNumber.get(i + 1);
             }
             if (this.operatorType.equals("*") || this.operatorType.equals("/")) {
-                //this.expressionNumber.set(i, this.result);
                 this.expressionNumber.remove(i + 1);
                 this.expressionNumber.remove(i);
-                this.expressionNumber.add(this.result);
+                this.expressionNumber.add(i, this.result);
                 this.expressionOperator.remove(i);
                 i++;
             }
