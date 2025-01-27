@@ -14,6 +14,8 @@ public class Calculator {
 
     public double result = 0.0;
 
+    public List<Double> log = new ArrayList<Double>();
+
     public void buttons() {
         numberList[0] = "0";
         numberList[1] = "1";
@@ -41,6 +43,8 @@ public class Calculator {
         if (displayInput) System.out.println("--> " + this.expression);
         return this;
     }
+
+
 
     public Calculator extractNumber() {
         StringBuilder number = new StringBuilder();
